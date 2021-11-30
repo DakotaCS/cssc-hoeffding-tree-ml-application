@@ -1,0 +1,9 @@
+Hoeffding Tree (VFDT). Split Confidence: 1.0E-7. Split Criteria: Info Gain Split.
+Leaf Prediction Strategy: Naive Bayes Adaptive.
+Great Group: gray-brown : Soil Order: Luvisol
+Main Characteristics: 
+Found in forested landscapes underlain by loamy tills derived 
+from underlying sedimentary rock or clayey lacustrine deposits. 
+Parent materials include calcium and magneisum.
+ Neutral/alkaline pH.
+

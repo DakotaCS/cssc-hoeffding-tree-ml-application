@@ -1,0 +1,142 @@
+@relation soils.symbolic
+
+%biome,colour,Phorizon,specialchar1,soilformingprocess,acidity,porosity,consistency,moisturecontent,thickness,organiccontent,carbonate,greatgroup
+@attribute biome {decidious-forest,coniferous-forest,hot-desert,cold-desert,wetland,plains,pond,lacustrine}
+@attribute colour {no,gray,brown,dark-brown,brown-orange,black,gray-brown,yellow,yellow-black,yellow-brown,gray-black,red-brown}
+@attribute predominanthorizon {no,Om,O,Of,B,Ae,Bf,Ah,Bh,Bhf,Btg,Ah-Ap,any}
+@attribute specialchars1 {no,fibric,cryoturbated,organic,gleyed,mineral,warm-soil,clay-enriched,slickenslide}
+@attribute soilformingprocess {eluvial,alluvial,eolian,volcanic,glacial,climatic,biogenic}
+@attribute acidity numeric
+@attribute moisturecontent numeric
+@attribute consistency {fine, semi-fine, semi-coarse, coarse}
+@attribute porosity numeric
+@attribute thickness numeric
+%where 1=semi,2=decomposed
+@attribute organiccontent {no,yes-decomposed,yes-semi-decomposed,yes}
+@attribute carbonate {no,yes}
+@attribute greatgroup {none,gray-brown,melanic,eutric,sombric,dystric,brown,dark-brown,black,dark-gray,turbic,static,organic,luvic,humic_1,gleysol,fibrisol,mesisol,humisol,folisol,humic_2,ferro-humic,humo-ferric,vertisol,humic_3,regosol,humic_4,solonetz,solodized,solod,vertic,gray}
+
+@data
+decidious-forest,gray-brown,Ah,warm-soil,eluvial,7,2.25,fine,50,0,no,no,gray-brown
+decidious-forest,gray,Ah,warm-soil,eluvial,7,2.25,fine,50,0,no,no,gray-brown
+decidious-forest,brown,Ah,warm-soil,eluvial,7,2.25,fine,50,0,no,no,gray-brown
+decidious-forest,gray,any,no,eluvial,7,2.25,fine,50,0,no,no,gray
+decidious-forest,gray-brown,any,no,eluvial,7,2.25,fine,50,0,no,no,gray
+decidious-forest,brown,any,no,eluvial,7,2.25,fine,50,0,no,no,gray
+coniferous-forest,brown-orange,Ah-Ap,no,glacial,10.75,1.375,semi-fine,42.5,30,no,no,melanic
+coniferous-forest,brown-orange,Ah,no,glacial,10.75,1.375,semi-fine,42.5,30,no,no,melanic
+coniferous-forest,brown,Ah-Ap,no,glacial,10.75,1.375,semi-fine,42.5,30,no,no,melanic
+coniferous-forest,brown,Ah,no,glacial,10.75,1.375,semi-fine,42.5,30,no,no,melanic
+coniferous-forest,brown-orange,Ah-Ap,no,glacial,10.75,1.375,semi-fine,42.5,6,no,no,eutric
+coniferous-forest,brown-orange,Ah,no,glacial,10.75,1.375,semi-fine,42.5,6,no,no,eutric
+coniferous-forest,brown,Ah-Ap,no,glacial,10.75,1.375,semi-fine,42.5,6,no,no,eutric
+coniferous-forest,brown,Ah,no,glacial,10.75,1.375,semi-fine,42.5,6,no,no,eutric
+coniferous-forest,brown-orange,Ah-Ap,no,glacial,7,1.375,semi-fine,42.5,30,no,no,sombric
+coniferous-forest,brown-orange,Ah,no,glacial,7,1.375,semi-fine,42.5,30,no,no,sombric
+coniferous-forest,brown,Ah-Ap,no,glacial,7,1.375,semi-fine,42.5,30,no,no,sombric
+coniferous-forest,brown,Ah,no,glacial,7,1.375,semi-fine,42.5,30,no,no,sombric
+coniferous-forest,brown-orange,Ah-Ap,no,glacial,7,1.125,semi-fine,42.5,6,no,no,dystric
+coniferous-forest,brown-orange,Ah,no,glacial,7,1.125,semi-fine,42.5,6,no,no,dystric
+coniferous-forest,brown,Ah-Ap,no,glacial,7,1.125,semi-fine,42.5,6,no,no,dystric
+coniferous-forest,brown,Ah,no,glacial,7,1.125,semi-fine,42.5,6,no,no,dystric
+plains,brown,Ah,no,eolian,3.25,1.125,semi-coarse,42.5,30,yes,no,brown
+plains,dark-brown,Ah,no,eolian,3.25,1.125,semi-coarse,42.5,30,yes,no,brown
+plains,gray-brown,Ah,no,eolian,3.25,1.125,semi-coarse,42.5,30,yes,no,brown
+plains,dark-brown,Ah,no,eolian,3.25,1.125,semi-coarse,20,30,yes,no,dark-brown
+plains,brown,Ah,no,eolian,3.25,1.125,semi-coarse,20,30,yes,no,dark-brown
+plains,gray-brown,Ah,no,eolian,3.25,1.125,semi-coarse,20,30,yes,no,dark-brown
+plains,black,Ah,no,eolian,3.25,1.125,semi-coarse,20,30,yes,no,black
+plains,gray-brown,Ah,no,eolian,3.25,1.125,semi-coarse,20,30,yes,no,black
+plains,dark-brown,Ah,no,eolian,3.25,1.125,semi-coarse,20,30,yes,no,black
+plains,gray-brown,Ah,no,eolian,3.25,1.125,semi-coarse,20,30,yes,no,dark-gray
+plains,gray,Ah,no,eolian,3.25,1.125,semi-coarse,20,30,yes,no,dark-gray
+plains,brown,Ah,no,eolian,3.25,1.125,semi-coarse,20,30,yes,no,dark-gray
+cold-desert,no,any,no,climatic,7,1.125,semi-coarse,20,75,yes-semi-decomposed,no,organic
+cold-desert,no,any,no,glacial,7,1.125,semi-coarse,20,75,yes-semi-decomposed,no,organic
+cold-desert,brown,any,no,climatic,7,1.125,semi-coarse,20,75,yes-semi-decomposed,no,organic
+cold-desert,brown,any,no,glacial,7,1.125,semi-coarse,20,75,yes-semi-decomposed,no,organic
+cold-desert,gray,any,no,climatic,7,1.125,semi-coarse,20,75,yes-semi-decomposed,no,organic
+cold-desert,gray,any,no,glacial,7,1.125,semi-coarse,20,75,yes-semi-decomposed,no,organic
+cold-desert,no,any,cryoturbated,climatic,7,1.125,semi-coarse,20,75,no,no,turbic
+cold-desert,no,any,cryoturbated,glacial,7,1.125,semi-coarse,20,75,no,no,turbic
+cold-desert,brown,any,cryoturbated,climatic,7,1.125,semi-coarse,20,75,no,no,turbic
+cold-desert,brown,any,cryoturbated,glacial,7,1.125,semi-coarse,20,75,no,no,turbic
+cold-desert,gray,any,cryoturbated,climatic,7,1.125,semi-coarse,20,75,no,no,turbic
+cold-desert,gray,any,cryoturbated,glacial,7,1.125,semi-coarse,20,75,no,no,turbic
+cold-desert,no,any,mineral,glacial,7,2.25,semi-coarse,20,75,no,no,static
+cold-desert,no,any,mineral,climatic,7,2.25,semi-coarse,20,75,no,no,static
+cold-desert,brown,any,mineral,glacial,7,2.25,semi-coarse,20,75,no,no,static
+cold-desert,brown,any,mineral,climatic,7,2.25,semi-coarse,20,75,no,no,static
+cold-desert,gray,any,mineral,glacial,7,2.25,semi-coarse,20,75,no,no,static
+cold-desert,gray,any,mineral,climatic,7,2.25,semi-coarse,20,75,no,no,static
+wetland,gray-black,Btg,gleyed,eluvial,7,2.25,coarse,50,75,yes,no,luvic
+wetland,gray-black,Btg,gleyed,biogenic,7,2.25,coarse,50,75,yes,no,luvic
+wetland,gray,Btg,gleyed,eluvial,7,2.25,coarse,50,75,yes,no,luvic
+wetland,gray,Btg,gleyed,biogenic,7,2.25,coarse,50,75,yes,no,luvic
+wetland,black,Btg,gleyed,eluvial,7,2.25,coarse,50,75,yes,no,luvic
+wetland,black,Btg,gleyed,biogenic,7,2.25,coarse,50,75,yes,no,luvic
+wetland,gray-brown,Ah-Ap,gleyed,biogenic,7,2.25,coarse,50,30,yes,no,humic_1
+wetland,gray-brown,Ah,gleyed,biogenic,7,2.25,coarse,50,30,yes,no,humic_1
+wetland,gray,Ah-Ap,gleyed,biogenic,7,2.25,coarse,50,30,yes,no,humic_1
+wetland,gray,Ah,gleyed,biogenic,7,2.25,coarse,50,30,yes,no,humic_1
+wetland,brown,Ah-Ap,gleyed,biogenic,7,2.25,coarse,50,30,yes,no,humic_1
+wetland,brown,Ah,gleyed,biogenic,7,2.25,coarse,50,30,yes,no,humic_1
+pond,gray,any,gleyed,biogenic,7,1.375,semi-coarse,50,0,yes-decomposed,no,gleysol
+pond,gray-brown,Ah,gleyed,biogenic,7,1.375,semi-coarse,50,0,yes-decomposed,no,gleysol
+decidious-forest,brown,any,organic,biogenic,10.75,1.75,semi-coarse,50,30,yes,no,folisol
+decidious-forest,brown,O,organic,biogenic,10.75,1.75,semi-coarse,50,30,yes,no,folisol
+decidious-forest,dark-brown,any,organic,biogenic,10.75,1.75,semi-coarse,50,30,yes,no,folisol
+decidious-forest,dark-brown,O,organic,biogenic,10.75,1.75,semi-coarse,50,30,yes,no,folisol
+wetland,dark-brown,Of,fibric,biogenic,10.75,2.25,coarse,50,30,yes,no,fibrisol
+wetland,dark-brown,Of,organic,biogenic,10.75,2.25,coarse,50,30,yes,no,fibrisol
+wetland,dark-brown,O,fibric,biogenic,10.75,2.25,coarse,50,30,yes,no,fibrisol
+wetland,dark-brown,O,organic,biogenic,10.75,2.25,coarse,50,30,yes,no,fibrisol
+wetland,brown,Of,organic,biogenic,10.75,2.25,coarse,50,30,yes,no,fibrisol
+wetland,brown,Of,fibric,biogenic,10.75,2.25,coarse,50,30,yes,no,fibrisol
+wetland,brown,O,organic,biogenic,10.75,2.25,coarse,50,30,yes,no,fibrisol
+wetland,brown,O,fibric,biogenic,10.75,2.25,coarse,50,30,yes,no,fibrisol
+wetland,black,Om,organic,biogenic,10.75,2.25,coarse,50,30,yes-semi-decomposed,no,mesisol
+wetland,black,O,organic,biogenic,10.75,2.25,coarse,50,30,yes-semi-decomposed,no,mesisol
+wetland,dark-brown,Om,organic,biogenic,10.75,2.25,coarse,50,30,yes-semi-decomposed,no,mesisol
+wetland,dark-brown,O,organic,biogenic,10.75,2.25,coarse,50,30,yes-semi-decomposed,no,mesisol
+wetland,black,Om,organic,biogenic,10.75,1.75,coarse,50,30,yes-decomposed,no,humisol
+wetland,black,O,organic,biogenic,10.75,1.75,coarse,50,30,yes-decomposed,no,humisol
+wetland,dark-brown,Om,organic,biogenic,10.75,1.75,coarse,50,30,yes-decomposed,no,humisol
+wetland,dark-brown,O,organic,biogenic,10.75,1.75,coarse,50,30,yes-decomposed,no,humisol
+coniferous-forest,yellow-black,Bh,organic,volcanic,10.75,1.75,semi-coarse,50,30,yes,no,humic_2
+coniferous-forest,yellow-brown,Bh,organic,volcanic,10.75,1.75,semi-coarse,50,30,yes,no,humic_2
+coniferous-forest,yellow,Bh,organic,volcanic,10.75,1.75,semi-coarse,50,30,yes,no,humic_2
+coniferous-forest,red-brown,Bhf,organic,volcanic,10.75,1.75,semi-coarse,42.5,30,yes,no,ferro-humic
+coniferous-forest,brown,Bh,organic,volcanic,10.75,1.75,semi-coarse,42.5,30,yes,no,ferro-humic
+coniferous-forest,red-brown,Bh,organic,volcanic,10.75,1.75,semi-coarse,42.5,30,yes,no,ferro-humic
+coniferous-forest,brown,Bhf,organic,volcanic,10.75,1.75,semi-coarse,42.5,30,yes,no,ferro-humic
+coniferous-forest,red-brown,Bf,organic,volcanic,10.75,1.75,semi-coarse,42.5,30,yes,no,humo-ferric
+coniferous-forest,brown,Bh,organic,volcanic,10.75,1.75,semi-coarse,42.5,30,yes,no,humo-ferric
+coniferous-forest,red-brown,Bh,organic,volcanic,10.75,1.75,semi-coarse,42.5,30,yes,no,humo-ferric
+coniferous-forest,brown,Bf,organic,volcanic,10.75,1.75,semi-coarse,42.5,30,yes,no,humo-ferric
+lacustrine,black,Ah,clay-enriched,alluvial,10.75,1.75,semi-fine,42.5,6,no,no,vertisol
+lacustrine,black,Ah,no,alluvial,10.75,1.75,semi-fine,42.5,6,no,no,vertisol
+lacustrine,dark-brown,Ah,clay-enriched,alluvial,10.75,1.75,semi-fine,42.5,6,no,no,vertisol
+lacustrine,dark-brown,Ah,no,alluvial,10.75,1.75,semi-fine,42.5,6,no,no,vertisol
+lacustrine,dark-brown,Ah,clay-enriched,alluvial,10.75,0.75,semi-fine,42.5,30,no,no,humic_3
+lacustrine,brown,Ah,clay-enriched,alluvial,10.75,0.75,semi-fine,42.5,30,no,no,humic_3
+hot-desert,yellow,Ah-Ap,warm-soil,alluvial,10.75,0.75,fine,50,0,no,no,regosol
+hot-desert,yellow,Ah,warm-soil,alluvial,10.75,0.75,fine,50,0,no,no,regosol
+hot-desert,yellow-brown,Ah-Ap,warm-soil,alluvial,10.75,0.75,fine,50,0,no,no,regosol
+hot-desert,yellow-brown,Ah,warm-soil,alluvial,10.75,0.75,fine,50,0,no,no,regosol
+hot-desert,yellow-brown,no,warm-soil,alluvial,10.75,2.25,fine,50,0,no,yes,humic_4
+hot-desert,yellow,no,warm-soil,alluvial,10.75,2.25,fine,50,0,no,yes,humic_4
+hot-desert,brown,no,warm-soil,alluvial,10.75,2.25,fine,50,0,no,yes,humic_4
+plains,gray-black,B,clay-enriched,glacial,10.75,2.25,semi-fine,32.5,0,no,yes,solonetz
+plains,gray,B,clay-enriched,glacial,10.75,2.25,semi-fine,32.5,0,no,yes,solonetz
+plains,black,B,clay-enriched,glacial,10.75,2.25,semi-coarse,32.5,0,no,yes,solonetz
+plains,black,Ae,clay-enriched,glacial,10.75,2.25,semi-coarse,32.5,6,no,yes,solodized
+plains,black,Ah,clay-enriched,glacial,10.75,2.25,semi-coarse,32.5,6,no,yes,solodized
+plains,dark-brown,Ae,clay-enriched,glacial,10.75,2.25,semi-coarse,32.5,6,no,yes,solodized
+plains,dark-brown,Ah,clay-enriched,glacial,10.75,2.25,semi-coarse,32.5,6,no,yes,solodized
+plains,dark-brown,Ae,clay-enriched,glacial,10.75,2.25,semi-coarse,32.5,0.5,no,yes,solod
+plains,dark-brown,Ah,clay-enriched,glacial,10.75,2.25,semi-coarse,32.5,0.5,no,yes,solod
+plains,brown,Ae,clay-enriched,glacial,10.75,2.25,semi-coarse,32.5,0.5,no,yes,solod
+plains,brown,Ah,clay-enriched,glacial,10.75,2.25,semi-coarse,32.5,0.5,no,yes,solod
+plains,gray,any,slickenslide,glacial,10.75,2.25,semi-coarse,32.5,0,no,yes,vertic
+plains,gray-brown,any,slickenslide,glacial,10.75,2.25,semi-coarse,32.5,0,no,yes,vertic

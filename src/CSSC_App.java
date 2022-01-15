@@ -1,24 +1,20 @@
-//I declare that this assignment is my own work and that all material previously written or published in any source by any other person has been duly acknowledged in the assignment. 
-//I have not submitted this work, or a significant part thereof, previously as part of any academic program. 
-//In submitting this assignment I give permission to copy it for assessment purposes only.
-//Dakota C. Soares
-
 //: src/CSSC_App.java
 
 /***********************************************************************
- * COMP495 Project
  * Class: CSSC_App.java
  * 
  * Purpose: This contains the main() method that is the starting point of the CSSC Application 
  * 
  * @author: Dakota Soares, and other sources. Sources are appropriately referenced in the comp495_cssc_app.docx. 
  * 
- * Student ID: 3318342
- * @date: July 14th, 2021 
+ * @date: July 14th, 2021, Updated January 15th, 2022
+ * 
+ * @version: 1.1
  * 
  * Notes: see included documentation for test cases, parameters, etc. 
  */
-//import needed packages
+
+//import required packages
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
@@ -46,17 +42,19 @@ import weka.core.converters.ConverterUtils.DataSource;
 
 public class CSSC_App 
 {
-	//eol
+	//EOL (end of line delineator) 
 	public String end1 = "\n"; 
-	//text fields
+	//Declare needed objects
 	private JFrame frmGeoClassifyCssc;
 	private JTextField porosity;
 	private JTextField thickness;
 	private JTextField moisture;
 	private JTextField acidity;
+	
 	JTextArea textArea = new JTextArea();
+	//This will hold the list of great groups
 	ArrayList<String> greatgroups = new ArrayList<String>(); 
-	//combo boxes
+	//Declare combo box objects
 	private JComboBox<String> biome = new JComboBox<String>(); 
 	private JComboBox<String> soil = new JComboBox<String>();
 	private JComboBox<String> horizon = new JComboBox<String>();
@@ -71,12 +69,19 @@ public class CSSC_App
 	 */
 	public static void main(String[] args) 
 	{
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
+		EventQueue.invokeLater(new Runnable() 
+		{
+			//create a thread and run a new instance of the application
+			public void run() 
+			{
+				try 
+				{
 					CSSC_App window = new CSSC_App();
 					window.frmGeoClassifyCssc.setVisible(true);
-				} catch (Exception e) {
+				}
+				//Catch any exceptions
+				catch (Exception e) 
+				{
 					e.printStackTrace();
 				}
 			}
@@ -90,7 +95,7 @@ public class CSSC_App
 	{
 		initialize();
 		
-		//add the great groups to the arraylist
+		//Add the great groups to the greatgroup ArrayList
 		greatgroups.add("none"); 
 		greatgroups.add("gray-brown"); 
 		greatgroups.add("gray"); 
@@ -124,7 +129,7 @@ public class CSSC_App
 		greatgroups.add("solod");
 		greatgroups.add("vertic");
 		
-		//add items to the combo boxes 
+		//Add items to the combo boxes so the user can select one
 		biome.addItem("decidious-forest"); biome.addItem("coniferous-forest"); biome.addItem("hot-desert");
 		biome.addItem("cold-desert"); biome.addItem("wetland"); biome.addItem("plains");
 		biome.addItem("pond"); biome.addItem("lacustrine");
@@ -153,6 +158,8 @@ public class CSSC_App
 	
 	/**
 	 * Takes a soil great group as input and outputs the soil order
+	 * Note that this is a simple if() statement branch. 
+	 * Returns a string. 
 	 */
 	public String OrderClassification(String greatgroup)
 	{ 	
@@ -350,7 +357,7 @@ public class CSSC_App
 	      //create a new decision tree and import the dataset 
 	      HoeffdingTreeImpl decisionTree = new HoeffdingTreeImpl("src/dataset_full_compiled_rev_June29.arff"); 
 			HoeffdingTree tree = decisionTree.performTraining(); 
-			
+			//print the tree to standard output (the console)
 			System.out.println(tree.toString());
 			//get the test instances 
 			Instance testInstance1 = decisionTree.getTestInstance(biomeInput, soilColour, predHorizon, specialchar, soilProcess, 
@@ -374,24 +381,48 @@ public class CSSC_App
 	
 	/**
 	 * Initialize the contents of the frame.
-	 * The below is auto-generated 
+	 * The below code is auto-generated 
 	 */
 	private void initialize() 
 	{
-		
+		//Create the JFrame and specify JFframe behaviour 
 		frmGeoClassifyCssc = new JFrame();
 		frmGeoClassifyCssc.setResizable(false);
 		frmGeoClassifyCssc.setTitle("Geo Classify CSSC Soil Classification System");
 		frmGeoClassifyCssc.setBounds(100, 100, 775, 425);
 		frmGeoClassifyCssc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		//Creates the menu items and any other object that will have an actionlistener attached to it
 		JMenuBar menuBar = new JMenuBar();
 		frmGeoClassifyCssc.setJMenuBar(menuBar);
-		
 		JMenu mnFile = new JMenu("File");
 		menuBar.add(mnFile);
-		
+		JMenu mnOptions = new JMenu("Options");
+		menuBar.add(mnOptions);
 		JMenuItem mntmSaveResult = new JMenuItem("Save Result");
+		mnFile.add(mntmSaveResult);
+		JMenuItem mntmReset = new JMenuItem("Reset");
+		mnOptions.add(mntmReset);
+		JMenuItem mntmCalculate = new JMenuItem("Calculate");
+		mnOptions.add(mntmCalculate);
+		JMenuItem mntmExit = new JMenuItem("Exit");
+		mnFile.add(mntmExit);
+		JMenu mnInformation = new JMenu("Information");
+		menuBar.add(mnInformation);
+		JMenuItem mntmAstmInformation = new JMenuItem("ASTM Information");
+		mnInformation.add(mntmAstmInformation);
+		JMenuItem mntmCsscResources = new JMenuItem("CSSC Resources");
+		mnInformation.add(mntmCsscResources);
+		JMenu mnHelp = new JMenu("Help");
+		menuBar.add(mnHelp);
+		JMenuItem mntmHelpDocumentation = new JMenuItem("Help Documentation");
+		mnHelp.add(mntmHelpDocumentation);
+		JButton btnReset = new JButton("Reset");
+		menuBar.add(btnReset);
+		
+		//Action listeners for the above objects: 
+		
+		//Saves the result to a text file
 		mntmSaveResult.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -422,21 +453,17 @@ public class CSSC_App
 				} 	
 			}
 		});
-		mnFile.add(mntmSaveResult);
 		
-		JMenuItem mntmExit = new JMenuItem("Exit");
+		//Exit the application
 		mntmExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
 				System.exit(0);
 			}
 		});
-		mnFile.add(mntmExit);
 		
-		JMenu mnOptions = new JMenu("Options");
-		menuBar.add(mnOptions);
 		
-		JMenuItem mntmReset = new JMenuItem("Reset");
+		//Reset all the items in the GUI: 
 		mntmReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -453,21 +480,16 @@ public class CSSC_App
 				carbonate.setSelectedIndex(0);
 			}
 		});
-		mnOptions.add(mntmReset);
 		
-		JMenuItem mntmCalculate = new JMenuItem("Calculate");
+		//Calculate the result based on the User-Input and algorithm: 
 		mntmCalculate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
 				calculate(); 
 			}
 		});
-		mnOptions.add(mntmCalculate);
 		
-		JMenu mnInformation = new JMenu("Information");
-		menuBar.add(mnInformation);
-		
-		JMenuItem mntmAstmInformation = new JMenuItem("ASTM Information");
+		//Open the ASTM information window on a new thread
 		mntmAstmInformation.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -484,9 +506,8 @@ public class CSSC_App
 				
 			}
 		});
-		mnInformation.add(mntmAstmInformation);
 		
-		JMenuItem mntmCsscResources = new JMenuItem("CSSC Resources");
+		//Open the CSSC Resources window on a new thread
 		mntmCsscResources.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -502,20 +523,15 @@ public class CSSC_App
 				}); 
 			}
 		});
-		mnInformation.add(mntmCsscResources);
 		
-		JMenu mnHelp = new JMenu("Help");
-		menuBar.add(mnHelp);
-		
-		JMenuItem mntmHelpDocumentation = new JMenuItem("Help Documentation");
+		//Open the help documentation dialog
 		mntmHelpDocumentation.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null, "Help Documentation for the application would go here.");
 			}
 		});
-		mnHelp.add(mntmHelpDocumentation);
 		
-		JButton btnReset = new JButton("Reset");
+		//Reset all the fields in the GUI
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -531,7 +547,18 @@ public class CSSC_App
 				carbonate.setSelectedIndex(0);
 			}
 		});
-		menuBar.add(btnReset);
+		
+		//Calculate the result based on the User-Input and algorithm:
+		JButton btnNewButton = new JButton("Calculate");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				calculate(); 
+			}
+		});
+		
+		//Auto-generated code that handles the grid-bag layout and GUI element formatting: 
+		
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 44, 0, 0, 0, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 0};
@@ -564,7 +591,6 @@ public class CSSC_App
 		gbc_lblNewLabel.gridx = 1;
 		gbc_lblNewLabel.gridy = 1;
 		frmGeoClassifyCssc.getContentPane().add(lblNewLabel, gbc_lblNewLabel);
-		
 		
 		GridBagConstraints gbc_biome = new GridBagConstraints();
 		gbc_biome.insets = new Insets(0, 0, 5, 5);
@@ -636,7 +662,6 @@ public class CSSC_App
 		gbc_moisture.gridy = 4;
 		frmGeoClassifyCssc.getContentPane().add(moisture, gbc_moisture);
 		moisture.setColumns(10);
-		
 		
 		JLabel lblStep_3 = new JLabel("Step 3: ");
 		GridBagConstraints gbc_lblStep_3 = new GridBagConstraints();
@@ -798,13 +823,6 @@ public class CSSC_App
 		gbc_lblResult.gridy = 15;
 		frmGeoClassifyCssc.getContentPane().add(lblResult, gbc_lblResult);
 		
-		JButton btnNewButton = new JButton("Calculate");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) 
-			{
-				calculate(); 
-			}
-		});
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
 		gbc_btnNewButton.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnNewButton.insets = new Insets(0, 0, 5, 5);
@@ -867,5 +885,6 @@ public class CSSC_App
 		frmGeoClassifyCssc.getContentPane().add(porosity, gbc_porosity);
 		porosity.setColumns(10);
 	}
+	
 //end of file CSSC_App.java
 }

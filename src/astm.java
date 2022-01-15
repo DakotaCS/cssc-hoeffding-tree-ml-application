@@ -1,24 +1,18 @@
-//I declare that this assignment is my own work and that all material previously written or published in any source by any other person has been duly acknowledged in the assignment. 
-//I have not submitted this work, or a significant part thereof, previously as part of any academic program. 
-//In submitting this assignment I give permission to copy it for assessment purposes only.
-//Dakota C. Soares
-
 //: src/astm.java
 
 /***********************************************************************
- * COMP495 Project
  * Class: astm.java
  * 
  * Purpose: Purpose: This contains the astm resources window for the CSSC application. 
  * 
  * @author: Dakota Soares, and other sources. Sources are appropriately referenced in the comp495_cssc_app.docx. 
- * 
- * Student ID: 3318342
+
  * @date: July 14th, 2021 
  * 
  * Notes: see included documentation for test cases, parameters, etc. 
  */
-//import needed packages
+
+//import required packages
 import javax.swing.JFrame;
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
@@ -34,14 +28,17 @@ public class astm {
 	/**
 	 * Create the application.
 	 */
-	public astm() {
+	public astm() 
+	{
 		initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize() 
+	{
+		//Initialize the JFrame and set its properties
 		frmAstmInformation = new JFrame();
 		frmAstmInformation.setTitle("ASTM Information");
 		frmAstmInformation.setBounds(100, 100, 642, 355);
@@ -52,6 +49,8 @@ public class astm {
 		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0, Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		frmAstmInformation.getContentPane().setLayout(gridBagLayout);
+		
+		//Auto-generated code for layout
 		
 		JLabel lblNewLabel = new JLabel("Association for Standards, Materials, and Testing Information");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -72,7 +71,6 @@ public class astm {
 		
 		JTextPane txtpnThereAreA = new JTextPane();
 		txtpnThereAreA.setEditable(false);
-		txtpnThereAreA.setText("There are a variety of ASTM standard practice and procedural documents that can be used to provide further clarification and/or analysis when examining soils. The following ASTM standards listed below are relevant to soil pedon analysis:\r\n\r\nNote: ASTM D2488 was used to identify soil attributes that could be easily analyzed as part of this project. ");
 		GridBagConstraints gbc_txtpnThereAreA = new GridBagConstraints();
 		gbc_txtpnThereAreA.gridheight = 2;
 		gbc_txtpnThereAreA.insets = new Insets(0, 0, 5, 5);
@@ -83,7 +81,6 @@ public class astm {
 		
 		JTextPane txtpnAstmDe = new JTextPane();
 		txtpnAstmDe.setEditable(false);
-		txtpnAstmDe.setText("ASTM D2487-17e1 : Standard Practice for Classification of Soils for Engineering Purposes (USCS) : https://www.astm.org/Standards/D2487.htm");
 		GridBagConstraints gbc_txtpnAstmDe = new GridBagConstraints();
 		gbc_txtpnAstmDe.insets = new Insets(0, 0, 5, 5);
 		gbc_txtpnAstmDe.fill = GridBagConstraints.BOTH;
@@ -93,7 +90,6 @@ public class astm {
 		
 		JTextPane txtpnAstmDa = new JTextPane();
 		txtpnAstmDa.setEditable(false);
-		txtpnAstmDa.setText("ASTM D2488-09a : Standard Practice for Description and Identification of Soils (Visual-Manual Procedure) : https://socwisconsin.org/wp-content/uploads/2017/01/ASTM-D-2488-visual-USCS.pdf ");
 		GridBagConstraints gbc_txtpnAstmDa = new GridBagConstraints();
 		gbc_txtpnAstmDa.insets = new Insets(0, 0, 5, 5);
 		gbc_txtpnAstmDa.fill = GridBagConstraints.BOTH;
@@ -103,7 +99,6 @@ public class astm {
 		
 		JTextPane txtpnAstmD = new JTextPane();
 		txtpnAstmD.setEditable(false);
-		txtpnAstmD.setText("ASTM D4083-90 : Standard Practice for Description of Frozen Soils (Visual-Manual Procedure) : https://www.astm.org/Standards/D4083.htm");
 		GridBagConstraints gbc_txtpnAstmD = new GridBagConstraints();
 		gbc_txtpnAstmD.insets = new Insets(0, 0, 5, 5);
 		gbc_txtpnAstmD.fill = GridBagConstraints.BOTH;
@@ -113,13 +108,21 @@ public class astm {
 		
 		JTextPane txtpnAstmD_1 = new JTextPane();
 		txtpnAstmD_1.setEditable(false);
-		txtpnAstmD_1.setText("ASTM D653-21 : Standard Terminology Relating to Soil, Rock, and Contained Fluids : https://www.astm.org/Standards/D653.htm");
 		GridBagConstraints gbc_txtpnAstmD_1 = new GridBagConstraints();
 		gbc_txtpnAstmD_1.insets = new Insets(0, 0, 5, 5);
 		gbc_txtpnAstmD_1.fill = GridBagConstraints.BOTH;
 		gbc_txtpnAstmD_1.gridx = 1;
 		gbc_txtpnAstmD_1.gridy = 8;
 		frmAstmInformation.getContentPane().add(txtpnAstmD_1, gbc_txtpnAstmD_1);
+		
+		//Set the text informing the user as appropriate regarding various ASTM soil standards: 
+		
+		txtpnAstmD_1.setText("ASTM D653-21 : Standard Terminology Relating to Soil, Rock, and Contained Fluids : https://www.astm.org/Standards/D653.htm");
+		txtpnAstmD.setText("ASTM D4083-90 : Standard Practice for Description of Frozen Soils (Visual-Manual Procedure) : https://www.astm.org/Standards/D4083.htm");
+		txtpnAstmDa.setText("ASTM D2488-09a : Standard Practice for Description and Identification of Soils (Visual-Manual Procedure) : https://socwisconsin.org/wp-content/uploads/2017/01/ASTM-D-2488-visual-USCS.pdf ");
+		txtpnThereAreA.setText("There are a variety of ASTM standard practice and procedural documents that can be used to provide further clarification and/or analysis when examining soils. The following ASTM standards listed below are relevant to soil pedon analysis:\r\n\r\nNote: ASTM D2488 was used to identify soil attributes that could be easily analyzed as part of this project. ");
+		txtpnAstmDe.setText("ASTM D2487-17e1 : Standard Practice for Classification of Soils for Engineering Purposes (USCS) : https://www.astm.org/Standards/D2487.htm");
+		
 	}
 //end of file astm.java
 }

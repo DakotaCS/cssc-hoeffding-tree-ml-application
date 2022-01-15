@@ -1,24 +1,18 @@
-//I declare that this assignment is my own work and that all material previously written or published in any source by any other person has been duly acknowledged in the assignment. 
-//I have not submitted this work, or a significant part thereof, previously as part of any academic program. 
-//In submitting this assignment I give permission to copy it for assessment purposes only.
-//Dakota C. Soares
-
 //: src/cssc.java
 
 /***********************************************************************
- * COMP495 Project
  * Class: cssc.java
  * 
  * Purpose: This contains the cssc resources window for the CSSC application. 
  * 
  * @author: Dakota Soares, and other sources. Sources are appropriately referenced in the comp495_cssc_app.docx. 
  * 
- * Student ID: 3318342
  * @date: July 14th, 2021 
  * 
  * Notes: see included documentation for test cases, parameters, etc. 
  */
-//import needed packages
+
+//import required packages
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextPane;
@@ -35,14 +29,17 @@ public class cssc
 	/**
 	 * Create the window.
 	 */
-	public cssc() {
+	public cssc() 
+	{
 		initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize() 
+	{
+		//Initialize the JFrame and set its properties
 		frmCsscResources = new JFrame();
 		frmCsscResources.setTitle("CSSC Resources");
 		frmCsscResources.setBounds(100, 100, 577, 320);
@@ -53,6 +50,8 @@ public class cssc
 		gridBagLayout.columnWeights = new double[]{Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{Double.MIN_VALUE};
 		frmCsscResources.getContentPane().setLayout(gridBagLayout);
+		
+		//Auto-generated code for layout
 		
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -79,7 +78,6 @@ public class cssc
 		
 		JTextPane txtpnThereAreA = new JTextPane();
 		txtpnThereAreA.setEditable(false);
-		txtpnThereAreA.setText("Agri-Food and Agriculture Canada (a Federal Department under the Minister of Agriculture) provides clear and comprehensive information on soil types. The following resources were used:");
 		GridBagConstraints gbc_txtpnThereAreA = new GridBagConstraints();
 		gbc_txtpnThereAreA.gridheight = 2;
 		gbc_txtpnThereAreA.insets = new Insets(0, 0, 5, 5);
@@ -90,7 +88,6 @@ public class cssc
 		
 		JTextPane txtpnAstmDe = new JTextPane();
 		txtpnAstmDe.setEditable(false);
-		txtpnAstmDe.setText("Soils of Canada : Soil Map and Soil Order Description Home Page https://soilsofcanada.ca/\r\nNote: Detailed Descriptions for all soil orders used in the application are derived from the 10 Order pages found here: https://soilsofcanada.ca/orders/");
 		GridBagConstraints gbc_txtpnAstmDe = new GridBagConstraints();
 		gbc_txtpnAstmDe.insets = new Insets(0, 0, 5, 5);
 		gbc_txtpnAstmDe.fill = GridBagConstraints.BOTH;
@@ -100,7 +97,6 @@ public class cssc
 		
 		JTextPane txtpnAstmDa = new JTextPane();
 		txtpnAstmDa.setEditable(false);
-		txtpnAstmDa.setText("The Canadian System of Soil Classification : 3rd Edition, 1998 PDF Manual. Published by the Soil Classification Working Group : https://sis.agr.gc.ca/cansis/publications/manuals/1998-cssc-ed3/cssc3_manual.pdf");
 		GridBagConstraints gbc_txtpnAstmDa = new GridBagConstraints();
 		gbc_txtpnAstmDa.insets = new Insets(0, 0, 5, 5);
 		gbc_txtpnAstmDa.fill = GridBagConstraints.BOTH;
@@ -110,13 +106,20 @@ public class cssc
 		
 		JTextPane txtpnAstmD = new JTextPane();
 		txtpnAstmD.setEditable(false);
-		txtpnAstmD.setText("Government of Canada : CSSC 3rd Edition Table of Contents : https://sis.agr.gc.ca/cansis/taxa/cssc3/index.html");
 		GridBagConstraints gbc_txtpnAstmD = new GridBagConstraints();
 		gbc_txtpnAstmD.insets = new Insets(0, 0, 5, 5);
 		gbc_txtpnAstmD.fill = GridBagConstraints.BOTH;
 		gbc_txtpnAstmD.gridx = 1;
 		gbc_txtpnAstmD.gridy = 7;
 		frmCsscResources.getContentPane().add(txtpnAstmD, gbc_txtpnAstmD);
+		
+		//Set the text informing the user as appropriate regarding various CSSC Soil Resource links: 
+		
+		txtpnThereAreA.setText("Agri-Food and Agriculture Canada (a Federal Department under the Minister of Agriculture) provides clear and comprehensive information on soil types. The following resources were used:");
+		txtpnAstmDe.setText("Soils of Canada : Soil Map and Soil Order Description Home Page https://soilsofcanada.ca/\r\nNote: Detailed Descriptions for all soil orders used in the application are derived from the 10 Order pages found here: https://soilsofcanada.ca/orders/");
+		txtpnAstmDa.setText("The Canadian System of Soil Classification : 3rd Edition, 1998 PDF Manual. Published by the Soil Classification Working Group : https://sis.agr.gc.ca/cansis/publications/manuals/1998-cssc-ed3/cssc3_manual.pdf");
+		txtpnAstmD.setText("Government of Canada : CSSC 3rd Edition Table of Contents : https://sis.agr.gc.ca/cansis/taxa/cssc3/index.html");
+		
 	}
 //end of cssc.java
 }
